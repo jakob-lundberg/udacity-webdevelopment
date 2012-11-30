@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> Logs </title>
+    <style>.row { width: {{width}}px; }</style>
+  </head>
+
+  <body>
+    <h1> Logs </h1>
+
+    <table border="1">
+      {{#logs}}
+        <tr>
+            <td> {{index}} </td>
+            <td> {{type}} </td>
+            <td> {{data}} </td>
+        </tr>
+      {{/logs}}
+    </table> 
+ </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="http://static.lundberg.li/main.css" />
+
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <a href="/blog" class="main-title">{{title}}</a>
+  <hr>
+  <div id="content">
+
+      {{#Blogposts}}
+      <div class="post">
+          <div class="post-title">{{subject}}</div>
+          <p class="post-content">{{content}}</p>
+      </div> 
+      {{/Blogposts}}
+
+  </div>
+</body>
+
+</html>
+
