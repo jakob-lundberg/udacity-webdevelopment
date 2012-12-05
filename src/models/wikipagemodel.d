@@ -1,5 +1,4 @@
 import models.model;
-import std.stdio;
 
 class WikiPage:Model{
     public:
@@ -7,10 +6,8 @@ class WikiPage:Model{
         string content;
         this(){};
         this(string oldPageName){
-            writeln(GetContentOfPage(oldPageName));
             auto db = OpenDb("mywiki");
             if (!db){
-                writeln("Failed to open DB!");
                 return;
             }
             string queryString;
@@ -28,7 +25,6 @@ class WikiPage:Model{
 
         auto put() {
             // Update or Insert
-            writeln("write to db:"~content);
             auto db = OpenDb("mywiki");
             auto res = db.query("SELECT id FROM wiki_pages WHERE page_name = '"
                         ~pageName~"';");
@@ -45,7 +41,6 @@ class WikiPage:Model{
 
     private:
         string GetContentOfPage(string pageName){
-            writeln("Searching for page "~pageName);
             auto db = OpenDb("mywiki");
             if (!db){
                 return "";

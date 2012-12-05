@@ -2,7 +2,6 @@ import arsd.cgi;
 import controllers.wikicontroller;
 import views.editpageview;
 import models.wikipagemodel;
-import std.stdio;
 
 class EditPageController : WikiController {
     public:
@@ -23,7 +22,6 @@ class EditPageController : WikiController {
         _pageName = GetPostData("pageName");
         _content = GetPostData("content");
         ValidateInput();
-        writeln("put to db:"~_content);
 
         auto newWikiPage = new WikiPage(_pageName, _content);
         newWikiPage.put();

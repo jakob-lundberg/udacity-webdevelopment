@@ -1,6 +1,5 @@
 import arsd.postgres;
 import std.conv;
-import std.stdio;
 
 class Model{
     protected:

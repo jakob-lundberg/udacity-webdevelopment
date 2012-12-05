@@ -1,5 +1,4 @@
 import arsd.cgi;
-import std.stdio;
 class Controller{
     public:
     this (Cgi cgi){
@@ -7,11 +6,9 @@ class Controller{
     }
     void invoke(){
         if (_cgi.requestMethod == _cgi.RequestMethod.GET){
-            writeln("Get");
             InvokeGet();
             return;
         }else if (_cgi.requestMethod == _cgi.RequestMethod.POST){
-            writeln("Post");
             InvokePost();
             return;
         }
