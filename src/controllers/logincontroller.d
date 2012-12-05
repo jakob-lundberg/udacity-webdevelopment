@@ -4,7 +4,6 @@ import views.loginview;
 import models.usermodel;
 import utils.crypto;
 import std.regex;
-
 class LoginController : Controller {
     public:
     this (Cgi cgi){
@@ -57,7 +56,7 @@ class LoginController : Controller {
         string useridCookie = CreateUserIdCookie(to!string(user._id));
         stderr.writeln(user._id);
         _cgi.setCookie("userid",useridCookie);
-        _cgi.setResponseLocation("http://www.lundberg.li/blog/welcome");
+        _cgi.setResponseLocation("/");
 
         
     }

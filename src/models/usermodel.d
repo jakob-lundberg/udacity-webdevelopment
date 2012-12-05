@@ -14,8 +14,9 @@ class User:Model{
             _email = email;
         }
         auto put() {
-            auto db = new arsd.postgres.PostgreSql("dbname = myblog");
-            db.query("INSERT INTO users (username, passwordhash, email) values (?, ?, ?)", _username, _passwordHash, _email);
+            auto db = new arsd.postgres.PostgreSql("dbname = mywiki");
+            db.query("INSERT INTO users (username, passwordhash, email)"
+                   ~" values (?, ?, ?)", _username, _passwordHash, _email);
             auto id = db.query("SELECT last_value FROM users_id_seq;");
             _id = std.conv.to!int(id.front()[0]);
             return _id;
@@ -23,7 +24,7 @@ class User:Model{
         }
 
         void GetUserById(string userid){
-            auto db = new arsd.postgres.PostgreSql("dbname = myblog");
+            auto db = new arsd.postgres.PostgreSql("dbname = mywiki");
             string queryString;
                 queryString = "SELECT * FROM users WHERE id = "
                     ~userid~" ORDER BY created DESC";
@@ -35,7 +36,7 @@ class User:Model{
         }
 
         void GetUserByName(string username){
-            auto db = new arsd.postgres.PostgreSql("dbname = myblog");
+            auto db = new arsd.postgres.PostgreSql("dbname = mywiki");
             string queryString;
                 queryString = "SELECT * FROM users WHERE username = '"
                     ~username~"' ORDER BY created DESC";

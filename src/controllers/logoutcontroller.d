@@ -7,7 +7,7 @@ class LogoutController : Controller {
     }
     override void invoke(){
         _cgi.clearCookie("userid");
-        _cgi.setResponseLocation("http://www.lundberg.li/blog/signup");
+        _cgi.setResponseLocation("/");
 
     }
     private:

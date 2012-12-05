@@ -36,7 +36,7 @@ class SignupController : Controller {
                 // Add userid cookie
                 string useridCookie = CreateUserIdCookie(to!string(userid));
                 _cgi.setCookie("userid",useridCookie);
-                _cgi.setResponseLocation("http://www.lundberg.li/blog/welcome");
+                _cgi.setResponseLocation("/");
             }
             _signupView.display(
                     username = username,

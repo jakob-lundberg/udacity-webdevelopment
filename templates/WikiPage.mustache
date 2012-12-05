@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="http://static.lundberg.li/main.css" />
+
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <a href="/" class="main-title">{{title}}</a>
+  <a href="/login" >login</a>
+  <a href="/logout" >logout</a>
+  <a href="/signup" >signup</a>
+  <a href="/_edit/{{page_name}}" >edit</a>
+  <div class="post-title">{{page_name}}</div>
+  <hr>
+  <div id="content">
+
+      <div class="post">
+             <p class="post-content">{{& content}}</p>
+      </div> 
+
+
+  </div>
+</body>
+
+</html>
