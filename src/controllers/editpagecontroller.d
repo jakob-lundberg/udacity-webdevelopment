@@ -19,13 +19,16 @@ class EditPageController : WikiController {
     }
     override void InvokePost(){
         SendToLogin();
-        _pageName = GetPostData("pageName");
+        auto path = _cgi.pathInfo;
+        auto urlArray = std.array.split(path, "/");
+        //_pageName = GetPostData("pageName");
+        _pageName = urlArray[2];
         _content = GetPostData("content");
-        ValidateInput();
+        //ValidateInput();
 
         auto newWikiPage = new WikiPage(_pageName, _content);
         newWikiPage.put();
-        _cgi.setResponseLocation("/"~_pageName);
+        _cgi.setResponseLocation("http://www.lundberg.li/"~_pageName);
 
     }
 

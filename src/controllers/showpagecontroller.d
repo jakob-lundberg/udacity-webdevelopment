@@ -13,7 +13,7 @@ class ShowPageController: WikiController{
     override void invoke(){
         auto wikiPage = new WikiPage(_pageName);
         if (wikiPage.content == ""){
-            _cgi.setResponseLocation("/_edit/"
+            _cgi.setResponseLocation("http://www.lundberg.li/_edit/"
                                      ~_pageName);
             return;
         }

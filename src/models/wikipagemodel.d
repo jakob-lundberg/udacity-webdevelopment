@@ -6,17 +6,8 @@ class WikiPage:Model{
         string content;
         this(){};
         this(string oldPageName){
-            auto db = OpenDb("mywiki");
-            if (!db){
-                return;
-            }
-            string queryString;
-            queryString = "SELECT * FROM wiki_pages WHERE page_name = '"
-                ~oldPageName~"'";
-            foreach(line; db.query(queryString)){
-                pageName = oldPageName;
-                content = line["content"];
-            }
+            pageName = oldPageName;
+            GetContentOfPage();
         }
         this(string newPageName, string newContent){
             pageName = newPageName;
@@ -40,19 +31,21 @@ class WikiPage:Model{
         }
 
     private:
-        string GetContentOfPage(string pageName){
+        void GetContentOfPage(){
             auto db = OpenDb("mywiki");
             if (!db){
-                return "";
+                return ;
             }
             string queryString;
             queryString = "SELECT * FROM wiki_pages WHERE page_name = '"
                 ~pageName~"'";
             auto queryResult = db.query(queryString); 
-            if (queryResult.empty()){
-                return "";
+
+            if (queryResult.length() == 0){
+                pageName = null;
+                return;
             }
-            return queryResult.front()["content"];
+            content = queryResult.front()["content"];
         }
 }
 

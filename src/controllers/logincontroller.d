@@ -56,7 +56,7 @@ class LoginController : Controller {
         string useridCookie = CreateUserIdCookie(to!string(user._id));
         stderr.writeln(user._id);
         _cgi.setCookie("userid",useridCookie);
-        _cgi.setResponseLocation("/");
+        _cgi.setResponseLocation("http://www.lundberg.li/");
 
         
     }

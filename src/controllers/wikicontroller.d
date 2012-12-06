@@ -17,7 +17,7 @@ class WikiController : Controller {
     }
     void SendToLogin(){
         if (IsLoggedIn() == null){
-            _cgi.setResponseLocation("/login");
+            _cgi.setResponseLocation("http://www.lundberg.li/login");
         }
     }
 }
